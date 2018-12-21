@@ -1,0 +1,35 @@
+<li style="width: 600px; height:200px"
+	[ngClass]="{'list-group-item':true,
+				'list-group-item-success': loveIts > 0,
+				'list-group-item-danger': loveIts < 0}">
+	<div class="row" style="height: 80px;">
+		<div class="col-sm-6"> 
+			<h2 [ngStyle]="{color: getColorTitle()}">{{ getPostTitle() }}</h2>
+		</div>
+		<div class="col-sm-1"></div>
+		<div class="col-sm-2" style="font-style:italic; color:#ABABAB;">
+			{{ getPostCreated() | date: 'yMMMMEEEEd' | uppercase }}
+		</div>
+	</div>
+	<div class="row" style="height: 60px;">
+		<div class="col-sm-12">
+			{{ getPostContent() }}
+		</div>
+	</div>
+	<div class="row"> 
+		<div class="col-sm-2">
+			<button class="btn btn-success"
+			(click)="setLoveIts(1); getLoveIts();">Love it!</button>
+		</div>
+		<div class="col-sm-2">
+			<button class="btn btn-danger"
+			(click)="setLoveIts(-1); getLoveIts();">Don't love it!</button>
+		</div>
+		<div class="col-sm-5"></div>
+		<div class="col-sm-3">
+			<button class="btn" style="color:black;"
+			(click)="updatePostCreated()">Mise à jour post</button>
+		</div>
+	</div>
+</li>
+
